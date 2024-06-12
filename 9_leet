@@ -1,0 +1,27 @@
+public class Solution {
+    public boolean isPalindrome(int x) {
+        if (x < 0) {
+            return false; // Negative numbers are not palindromes
+        }
+        
+        String numString = Integer.toString(x);
+        int left = 0;
+        int right = numString.length() - 1;
+        
+        while (left < right) {
+            if (numString.charAt(left++) != numString.charAt(right--)) {
+                return false; // If characters don't match, it's not a palindrome
+            }
+        }
+        
+        return true; // If all characters match, it's a palindrome
+    }
+
+    public static void main(String[] args) {
+        Solution solution = new Solution();
+        
+        System.out.println(solution.isPalindrome(121)); // Output: true
+        System.out.println(solution.isPalindrome(-121)); // Output: false
+        System.out.println(solution.isPalindrome(10)); // Output: false
+    }
+}
